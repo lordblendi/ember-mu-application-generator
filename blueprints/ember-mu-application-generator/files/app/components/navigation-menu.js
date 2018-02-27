@@ -18,7 +18,7 @@ export default Component.extend({
   layout: layout,
   tagName: 'div',
   currentRoute: '',
-  routing: inject('-routing'),
+  router: inject('router'),
 
   menus: computed(function() {
     let router = getOwner(this).lookup('router:main');
@@ -37,7 +37,7 @@ export default Component.extend({
   actions: {
     goToPage: function(item) {
       this.set('currentRoute', item);
-      this.get("routing").transitionTo(item);
+      this.get("router").transitionTo(item);
     }
   }
 });
